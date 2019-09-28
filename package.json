@@ -1,0 +1,35 @@
+{
+  "name": "preact-pwa-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "pika install",
+    "start": "es-dev-server --open --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@pika/cli": "^0.2.0",
+    "@pika/web": "^0.6.1",
+    "es-dev-server": "^1.18.0",
+    "kv-storage-polyfill": "^2.0.0"
+  },
+  "@pika/web": {
+    "webDependencies": [
+      "preact/hooks",
+      "htm/preact",
+      "preact-async-route",
+      "preact-router",
+      "kv-storage-polyfill",
+      "es-module-shims"
+    ]
+  },
+  "dependencies": {
+    "es-module-shims": "^0.4.5",
+    "htm": "^2.2.1",
+    "preact": "^10.0.0-rc.3",
+    "preact-async-route": "^2.2.1",
+    "preact-router": "^3.0.1"
+  }
+}

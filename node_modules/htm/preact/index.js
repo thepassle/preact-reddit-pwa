@@ -1,0 +1,1 @@
+var e,t=require("preact"),r=((e=require("htm"))&&"object"==typeof e&&"default"in e?e.default:e).bind(t.h);exports.h=t.h,exports.Component=t.Component,exports.html=r,exports.render=function(e,r){t.render(e,r,r.firstElementChild)};

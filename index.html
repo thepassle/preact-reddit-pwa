@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <base href="/">
+    <title>Reddit PWA</title>
+    <script defer src="./web_modules/es-module-shims.js"></script>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/icons/apple-touch-icon.png">
+
+    <meta name="theme-color" content="#0077ff"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="importmap-shim">
+      {
+        "imports": {
+          "@vaadin/router": "/web_modules/@vaadin/router.js",
+          "lit-element": "/web_modules/lit-element.js",
+          "std:kv-storage": [
+            "std:kv-storage",
+            "/web_modules/kv-storage-polyfill.js"
+          ]
+        }
+      }
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      body {
+        overflow: scroll;
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        padding: 10px;
+        -webkit-overflow-scrolling: touch;
+        background-color: #ededed;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="./app.js" type="module"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').then(() => { // eslint-disable-line
+            console.log('ServiceWorker registered!');
+          }, (err) => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>

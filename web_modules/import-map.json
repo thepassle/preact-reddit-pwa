@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "preact/hooks": "./preact/hooks.js",
+    "htm/preact": "./htm/preact.js",
+    "preact-async-route": "./preact-async-route.js",
+    "preact-router": "./preact-router.js",
+    "kv-storage-polyfill": "./kv-storage-polyfill.js",
+    "es-module-shims": "./es-module-shims.js"
+  }
+}
