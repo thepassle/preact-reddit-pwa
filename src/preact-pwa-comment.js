@@ -2,27 +2,29 @@ import { html } from '../web_modules/htm/preact.js';
 import { hasChildren, css } from './utils.js';
 
 
-export default function Comment({author, body, replies}) {
+export default function Comment({author, body, depth, replies}) {
     return html`
-        <h2 class="author">${author}:</h2>
-        <p>${body}</p>
+        <article class="depth-${depth}">
+            <h2 class="author">${author}:</h2>
+            <p>${body}</p>
 
-        ${replies
-            .filter(hasChildren)
-            .map(comment => {
-                const { author, depth, body, replies} = comment.data;
-                const { children } = replies.data;
+            ${replies
+                .filter(hasChildren)
+                .map(comment => {
+                    const { author, depth, body, replies} = comment.data;
+                    const { children } = replies.data;
 
-                return html`
-                    <article class="depth-${depth}">
+                    return html`
                         <${Comment}
+                            depth=${depth}
                             author=${author}
                             body=${body}
                             replies=${children}>
                         </${Comment}>
-                    </article>`
-            }
-        )}
+                    `;
+                }
+            )}
+        </article>
     `;
 }
 

@@ -56,17 +56,17 @@ export default function Thread({id, subreddit, urlTitle, path}) {
             ${comments
                 .filter(hasChildren)
                 .map(comment => {
-                    const { author, depth, body, replies} = comment.data;
+                    const { author, body, depth, replies} = comment.data;
                     const { children } = replies.data;
 
                     return html`
-                        <article class="depth-${depth}">
-                            <${Comment}
-                                author=${author}
-                                body=${body}
-                                replies=${children}>
-                            </${Comment}>
-                        </article>`
+                        <${Comment}
+                            depth=${depth}
+                            author=${author}
+                            body=${body}
+                            replies=${children}>
+                        </${Comment}>
+                    `;
                 }
             )}`
         : html`Loading...`
